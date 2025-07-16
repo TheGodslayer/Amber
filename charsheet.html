@@ -1,0 +1,885 @@
+<html>
+
+	<head>
+		<meta http-equiv="content-type" content="text/html;charset=iso-8859-1">
+		<meta name="generator" content="Adobe GoLive 4">
+		<title>Amber Character Creation</title>
+		<script src="scripts/charsheet.js"></script>
+		<style type="text/css"><!--
+			td { font-size: 15px; font-family: Arial, Helvetica, Geneva, Swiss, SunSans-Regular }-->
+		</style>
+	<link rel="stylesheet" href="scripts/fonts.css">
+</head>
+
+	<body bgcolor="#001100" text="black" link="black" marginheight="0" marginwidth="0" leftmargin="0" topmargin="0">
+		<table border="0" cellpadding="0" cellspacing="0">
+			<tr>
+				<td></td>
+			</tr>
+		</table>
+		<p></p>
+		<p></p>
+		<p>
+		<table border="0" cellpadding="0" cellspacing="0">
+			<tr>
+				<td width="10" bgcolor="#888888"></td>
+				<td bgcolor="#888888" width="140"><font color="black"><b><br>
+					Your Name:</b></font></td>
+				<td width="20" bgcolor="#110000"></td>
+				<td width="25" bgcolor="#555555"></td>
+				<td bgcolor="#555555" width="456">
+					<form name="form" method="post" action="scripts/charsheet.php3" onsubmit="return checktotal(this.form)">
+					<font color="white"><b>Step One: Player Info<br>
+					</b></font><font color="white"><input type="text" name="playername" size="30"></font></form></td>
+			</tr>
+			<tr>
+				<td width="10" bgcolor="#888888"></td>
+				<td bgcolor="#888888" width="140"><font color="black"><b>E-Mail:</b></font></td>
+				<td width="20" bgcolor="#110000"></td>
+				<td width="25" bgcolor="#555555"></td>
+				<td bgcolor="#555555" width="456"><input type="text" name="e-mail" size="30"></td>
+			</tr>
+			<tr>
+				<td width="10" valign="top" bgcolor="#888888"></td>
+				<td valign="top" bgcolor="#888888" width="140"><font color="black"><b>ICQ #:</b></font></td>
+				<td width="20" valign="top" bgcolor="#110000"></td>
+				<td width="25" valign="top" bgcolor="#555555"></td>
+				<td valign="top" bgcolor="#555555" width="456"><input type="text" name="icq" size="30"><br>
+					<br>
+				</td>
+			</tr>
+		</table>
+		<br>
+		<table border="0" cellpadding="0" cellspacing="0">
+			<tr>
+				<td width="10" bgcolor="#888888"></td>
+				<td bgcolor="#888888" width="140"><font color="black"><b><br>
+					Character Name:</b></font></td>
+				<td width="20" bgcolor="#110000"></td>
+				<td width="25" bgcolor="#555555"></td>
+				<td bgcolor="#555555" width="454"><font color="white"><b>Step Two: Character Info<br>
+					</b></font><font color="white"><input type="text" name="charname" size="30"></font></td>
+			</tr>
+			<tr>
+				<td width="10" bgcolor="#888888"></td>
+				<td bgcolor="#888888" width="140"><font color="black"><b>Title:</b></font></td>
+				<td width="20" bgcolor="#110000"></td>
+				<td width="25" bgcolor="#555555"></td>
+				<td bgcolor="#555555" width="454"><input type="text" name="title" size="30"></td>
+			</tr>
+			<tr>
+				<td width="10" valign="top" bgcolor="#888888"></td>
+				<td valign="top" bgcolor="#888888" width="140"><font color="black"><b>Description:</b></font></td>
+				<td width="20" valign="top" bgcolor="#110000"></td>
+				<td width="25" valign="top" bgcolor="#555555"></td>
+				<td valign="top" bgcolor="#555555" width="454"><textarea name="desc" wrap="virtual" rows="5" cols="50">Describe your character.</textarea><br>
+					<br>
+				</td>
+			</tr>
+			<tr>
+				<td width="10" bgcolor="#888888"></td>
+				<td width="140" bgcolor="#888888" valign="top"><font color="black"><b>Background:</b></font></td>
+				<td width="20"></td>
+				<td width="25" bgcolor="#555555"></td>
+				<td width="454" bgcolor="#555555"><textarea name="background" wrap="virtual" rows="5" cols="50">Paste your characters background here...	</textarea></td>
+			</tr>
+		</table>
+		<br>
+		<table border="0" cellpadding="0" cellspacing="0">
+			<tr>
+				<td width="10" bgcolor="#888888"></td>
+				<td width="140" bgcolor="#888888" valign="top"><font color="black"><b>Character Age:</b></font></td>
+				<td width="20" bgcolor="black"></td>
+				<td bgcolor="#555555" width="479" valign="top">
+					<table border="0" cellpadding="0" cellspacing="0">
+						<tr>
+							<td width="25" rowspan="5"></td>
+							<td width="454"><font color="white"><b>Step Three</b></font><font color="white">: <b>Age</b><br>
+								</font></td>
+						</tr>
+						<tr>
+							<td width="454">
+								<div align="left">
+									
+              <table border="0" cellpadding="5" cellspacing="0">
+                <tr> 
+                  <td width="95" align="left"> 
+                    <div align="left"> <font color="white"><b>Amber Age:</b></font></div>
+                  </td>
+                  <td>
+                    <input type="text" name="amberAGE" size="4" onchange="dontchangeme(this.form), form.amberAGE.value = 0" maxlength="4">
+                  </td>
+                  <td> 
+                    <div align="right"> 
+                      <select name="aAGE" size="1" onchange="dontchangeme(this.form), form.aAGE.value = 0">
+                        <option value="1">100 yrs. (Merlin) 
+                        <option value="2">200 yrs. (Martin) 
+                        <option value="3">300 yrs. (Delwin) 
+                        <option value="4">400 yrs. (Dalt) 
+                        <option value="5">500 yrs. (Random) 
+                        <option value="6">600 yrs.(Caine) 
+                        <option value="7">700 yrs. (Flora) 
+                        <option value="8">800 yrs. 
+                        <option value="9">900 yrs. (Fiona) 
+                        <option value="10">1Third Level yrs. 
+                        <option value="11">1100 yrs. 
+                        <option value="12">1200 yrs. (Corwin) 
+                        <option value="13">1300 yrs. 
+                        <option value="14">1400 yrs. 
+                        <option value="15">1500 yrs. (Benedict) 
+                        <option value="0" selected>Amber Age&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+                      </select>
+                    </div>
+                  </td>
+                </tr>
+              </table>
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<td width="454">
+								<table border="0" cellpadding="0" cellspacing="0">
+									<tr>
+										<td width="95"><font color="white"><b>Chaos Age:</b></font></td>
+										<td width="20"><img height="7" width="11" src="GIFs/add.gif" onclick="form.chaosAGE.value = eval(form.chaosAGE.value)+1,  form.cAGE.value = eval(form.cAGE.value)+0.5, form.LOG.value = + parseInt(eval(form.cAGE.value*1)), form.chaosADD.value = eval(form.chaosADD.value)+1"><br>
+											<img height="7" width="11" src="GIFs/subtract.gif" onclick="form.chaosAGE.value = eval(form.chaosAGE.value)-1,  form.cAGE.value = eval(form.cAGE.value)-0.5, form.LOG.value = + parseInt(eval(form.cAGE.value*1)), form.chaosADD.value = eval(form.chaosADD.value)-1"></td>
+										<td><input type="text" name="chaosAGE" size="2" value="0" onchange="dontchangeme(this.form), form.chaosAGE.value = 0"></td>
+										<td><select name="cAGE" size="1" onchange="dontchangeme(this.form), form.cAGE.value = 0">
+												<option value="0.5">The Death of Swavill. (Jurt)
+												<option value="1">The Black Road War. (Dara)
+												<option value="1.5">
+												<option value="2">
+												<option value="2.5">The Rise of Chaos:
+												<option value="3">The King Wars:
+												<option value="3.5">Rise of the Houses:
+												<option value="4">The Fall:
+												<option value="4.5">The God Wars:
+												<option value="5">Age of Chaos:
+												<option value="0" selected>Chaos Age
+											</select></td>
+									</tr>
+								</table>
+							</td>
+						</tr>
+						<tr>
+							<td width="454">
+								<table border="0" cellpadding="0" cellspacing="0">
+									<tr>
+										<td width="125"></td>
+										<td width="160"><font color="white"><b>Bonus Minor Powers:</b></font></td>
+										<td width="5"></td>
+										<td><input type="text" name="chaosADD" size="5" value="0" onchange="dontchangeme(this.form)"></td>
+									</tr>
+								</table>
+							</td>
+						</tr>
+						<tr>
+							<td width="454"><font color="black"><br>
+								Fill out your age before you fill out any other stats, if you
+								don't you may see errors in the program. Also, Remember to work
+								your age out with me before buying it.<br>
+								<br>
+								The Bonus Minor Powers are for Lords of Chaos with age to spend
+								on any of the minor powers in the game. Most of these free levels
+								should be in either Shape Shifting or Sorcery.<br>
+								<br>
+								</font></td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+		</table>
+		<br>
+		<br>
+		<table border="0" cellpadding="0" cellspacing="0" width="650">
+			<tr>
+				<td width="10" bgcolor="#888888"></td>
+				<td width="140" bgcolor="#888888" valign="top">
+					<table border="0">
+						<tr>
+							<td><font color="black"><b>Points</b>:</font></td>
+							<td><input type="text" name="pointsleft" size="5" value="300" onchange="dontchangeme(this.form)"></td>
+						</tr>
+						<tr>
+							<td><font color="black"><b>Total:</b></font></td>
+							<td><input type="text" name="points" size="5" value="0" onchange="dontchangeme(this.form)"></td>
+						</tr>
+					</table>
+					<font size="2"><br>
+					</font><input type="button" value="Current" onclick="sumpoints(this.form)"><br>
+					<br>
+					<font color="black">Click here to see your current values.</font>
+					<p><font size="2" color="black">When your current total value is 0, click &quot;Save&quot; to save your
+					character. This will e-mail your character to the GM and send
+					a copy to yourself. If you made a mistake and want to start over,
+					click &quot;Start Over&quot; - that will reset your points to 300.<br>
+					</font><br>
+					<input type="reset" value="Start Over" onclick="resetpoints()"><br>
+					<br>
+					<br>
+				</td>
+				<td width="20" bgcolor="black"></td>
+				<td bgcolor="#555555" width="480" valign="top">
+					<table border="0" cellpadding="0" cellspacing="0" width="480">
+						<tr>
+							<td width="25"></td>
+							<td colspan="2"><font color="white"><b>Step Four: Attributes</b></font></td>
+							<td width="40"></td>
+							<td width="30"></td>
+							<td width="220"></td>
+						</tr>
+						<tr>
+							<td width="25"></td>
+							<td width="115" valign="top">
+								<div align="left">
+									<a href="javascript:start_new('http://metaverse.net:7877/help?topic=strength')"><b>Strength</b></a><b> </b></div>
+							</td>
+							<td width="50" valign="top">
+								<div align="left">
+									<font color="white"><b>(STR):</b></font></div>
+							</td>
+							<td width="40" valign="top"><input type="text" name="STR" size="2" value="30" onchange="incStat(this.form, this.name, this.value)"></td>
+							<td width="30" valign="top"><img height="7" width="11" src="GIFs/add.gif" border="0" onclick="form.STR.value = eval(form.STR.value)+1*3"><br>
+								<img height="7" width="11" src="GIFs/subtract.gif" onclick="form.STR.value = eval(form.STR.value)-1*3"></td>
+							<td width="220" valign="top"><font size="2">Effects Damage, Hit Points, Lifting, and Toughness.</font></td>
+						</tr>
+						<tr>
+							<td width="25"></td>
+							<td width="115" valign="top"><a href="javascript:start_new('http://metaverse.net:7877/help?topic=speed')"><b>Reflexes</b></a><b> </b></td>
+							<td width="50" valign="top"><font color="white"><b>(REF):</b></font></td>
+							<td width="40" valign="top"><input type="text" name="REF" size="2" value="30" onchange="incStat(this.form, this.name, this.value)"></td>
+							<td width="30" valign="top"><img height="7" width="11" src="GIFs/add.gif" onclick="form.REF.value = eval(form.REF.value)+1*3"><br>
+								<img height="7" width="11" src="GIFs/subtract.gif" onclick="form.REF.value = eval(form.REF.value)-1*3"></td>
+							<td width="220" valign="top"><font size="2">Determines Speed, Physical Skill and Defense.</font></td>
+						</tr>
+						<tr>
+							<td width="25"></td>
+							<td width="115" valign="top"><a href="javascript:start_new('http://metaverse.net:7877/help?topic=reflexes')"><b>Endurance</b></a></td>
+							<td width="50" valign="top"><font color="white"><b>(END):</b></font></td>
+							<td width="40"><input type="text" name="END" size="2" value="30" onchange="incStat(this.form, this.name, this.value)"></td>
+							<td width="30" valign="top"><img height="7" width="11" src="GIFs/add.gif" onclick="form.END.value = eval(form.END.value)+1*3"><br>
+								<img height="7" width="11" src="GIFs/subtract.gif" onclick="form.END.value = eval(form.END.value)-1*3"></td>
+							<td width="220">
+								<div align="left">
+									<font size="2">Controls Extra Effort, Healing Rate and Health.</font></div>
+							</td>
+						</tr>
+						<tr>
+							<td width="25"></td>
+							<td width="115" valign="top"><a href="javascript:start_new('http://metaverse.net:7877/help?topic=size')"><b>Size</b></a></td>
+							<td width="50" valign="top"><font color="white"><b>(SIZ):</b></font></td>
+							<td width="40"><input type="text" name="SIZ" size="2" value="10" onchange="incStat(this.form, this.name, this.value)"></td>
+							<td width="30" valign="top"><img height="7" width="11" src="GIFs/add.gif" onclick="form.SIZ.value = eval(form.SIZ.value)+1"><br>
+								<img height="7" width="11" src="GIFs/subtract.gif" onclick="form.SIZ.value = eval(form.SIZ.value)-1"></td>
+							<td width="220"><font size="2">Effects Damage, Hit Points, and Strength.</font></td>
+						</tr>
+						<tr>
+							<td width="25"></td>
+							<td width="115" valign="top"><a href="javascript:start_new('http://metaverse.net:7877/help?topic=endurance')"><b>Intelligence</b></a><b> </b></td>
+							<td width="50" valign="top"><font color="white"><b>(INT):</b></font></td>
+							<td width="40"><input type="text" name="INT" size="2" value="30" onchange="incStat(this.form, this.name, this.value)"></td>
+							<td width="30" valign="top"><img height="7" width="11" src="GIFs/add.gif" onclick="form.INT.value = eval(form.INT.value)+1*3"><br>
+								<img height="7" width="11" src="GIFs/subtract.gif" onclick="form.INT.value = eval(form.INT.value)-1*3"></td>
+							<td width="220"><font size="2">Determines Mental Skill, Speed, and Knowledge.</font></td>
+						</tr>
+						<tr>
+							<td width="25"></td>
+							<td width="115" valign="top"><a href="javascript:start_new('http://metaverse.net:7877/help?topic=psyche')"><b>Psyche</b></a><b> </b></td>
+							<td width="50" valign="top"><font color="white"><b>(PSY):</b></font></td>
+							<td width="40"><input type="text" name="PSY" size="2" value="30" onchange="incStat(this.form, this.name, this.value)"></td>
+							<td width="30" valign="top"><img height="7" width="11" src="GIFs/add.gif" onclick="form.PSY.value = eval(form.PSY.value)+1*3"><br>
+								<img height="7" width="11" src="GIFs/subtract.gif" onclick="form.PSY.value = eval(form.PSY.value)-1*3"></td>
+							<td width="220"><font size="2">Determines Arcane Power, Skill, and Willpower.</font></td>
+						</tr>
+						<tr>
+							<td width="25"></td>
+							<td width="115" valign="top"><a href="javascript:start_new('http://metaverse.net:7877/help?topic=awareness')"><b>Awareness</b></a><b> </b></td>
+							<td width="50" valign="top"><font color="white"><b>(AWR):</b></font></td>
+							<td width="40"><input type="text" name="AWR" size="2" value="30" onchange="incStat(this.form, this.name, this.value)"></td>
+							<td width="30" valign="top"><img height="7" width="11" src="GIFs/add.gif" onclick="form.AWR.value = eval(form.AWR.value)+1*3"><br>
+								<img height="7" width="11" src="GIFs/subtract.gif" onclick="form.AWR.value = eval(form.AWR.value)-1*3"></td>
+							<td width="220"><font size="2">Determines Empathy, Perception, and 6th Sense.</font></td>
+						</tr>
+						<tr>
+							<td width="25"></td>
+							<td width="115" valign="top"><a href="javascript:start_new('http://metaverse.net:7877/help?topic=charisma')"><b>Charisma</b></a><b> </b></td>
+							<td width="50" valign="top"><font color="white"><b>(CHR):</b></font></td>
+							<td width="40"><input type="text" name="CHR" size="2" value="30" onchange="incStat(this.form, this.name, this.value)"></td>
+							<td width="30" valign="top"><img height="7" width="11" src="GIFs/add.gif" onclick="form.CHR.value = eval(form.CHR.value)+1*3"><br>
+								<img height="7" width="11" src="GIFs/subtract.gif" onclick="form.CHR.value = eval(form.CHR.value)-1*3"></td>
+							<td width="220"><font size="2">Determines Social Skills and Charm.</font></td>
+						</tr>
+						<tr>
+							<td colspan="6" bgcolor="black"><br>
+							</td>
+						</tr>
+					</table>
+					<br>
+					<table border="0" cellpadding="0" cellspacing="0">
+						<tr>
+							<td width="25"></td>
+							<td colspan="2"><font color="white"><b>Step Five: Powers</b></font></td>
+							<td colspan="2"><font color="white"><b>Bonus Powers:</b></font></td>
+							<td width="30"><font color="white"><b>Level</b></font>:</td>
+							<td width="30"></td>
+							<td width="73"><font color="white"><b>Rank:</b></font></td>
+						</tr>
+						<tr>
+							<td width="25"></td>
+							<td width="115"><a href="javascript:start_new('http://metaverse.net:7877/help?topic=strength')"><b>Pattern</b></a></td>
+							<td width="55"><font color="white"><b>(INT):</b></font></td>
+							<td width="25"></td>
+							<td width="100"></td>
+							<td width="30"><input type="text" name="PAT" size="2" value="0" onchange="incStat(this.form, this.name, this.value)"></td>
+							<td width="30"><img height="7" width="11" src="GIFs/add.gif" onclick="form.PAT.value = eval(form.PAT.value)+1"><br>
+								<img height="7" width="11" src="GIFs/subtract.gif" onclick="form.PAT.value = eval(form.PAT.value)-1"></td>
+							<td width="73"><input type="text" name="PATskill" size="2" value="0" onchange="incStat(this.form, this.name, this.value)"></td>
+						</tr>
+						<tr>
+							<td width="25"></td>
+							<td width="115"><a href="javascript:start_new('http://metaverse.net:7877/help?topic=speed')"><b>Logrus</b></a></td>
+							<td width="55"><font color="white"><b>(INT):</b></font></td>
+							<td width="25"></td>
+							<td width="100"></td>
+							<td width="30"><input type="text" name="LOG" size="2" value="0" onchange="incStat(this.form, this.name, this.value)"></td>
+							<td width="30"><img height="7" width="11" src="GIFs/add.gif" onclick="form.LOG.value = eval(form.LOG.value)+1"><br>
+								<img height="7" width="11" src="GIFs/subtract.gif" onclick="form.LOG.value = eval(form.LOG.value)-1"></td>
+							<td width="73"><input type="text" name="LOGskill" size="2" value="0" onchange="incStat(this.form, this.name, this.value)"></td>
+						</tr>
+						<tr>
+							<td width="25"></td>
+							<td width="115"><a href="javascript:start_new('http://metaverse.net:7877/help?topic=speed')"><b>The Jewel</b></a></td>
+							<td width="55"><font color="white"><b>(INT):</b></font></td>
+							<td width="25"></td>
+							<td width="100"></td>
+							<td width="30"><input type="text" name="JOJ" size="2" value="0" onchange="incStat(this.form, this.name, this.value)"></td>
+							<td width="30"><img height="7" width="11" src="GIFs/add.gif" onclick="form.JOJ.value = eval(form.JOJ.value)+1"><br>
+								<img height="7" width="11" src="GIFs/subtract.gif" onclick="form.JOJ.value = eval(form.JOJ.value)-1"></td>
+							<td width="73"><input type="text" name="JOJskill" size="2" value="0" onchange="incStat(this.form, this.name, this.value)"></td>
+						</tr>
+						<tr>
+							<td width="25"></td>
+							<td width="115"><b><input type="text" value="Major Power" name="OtherMajorPowers" size="12"></b></td>
+							<td width="55"><font color="white"><b>(INT):</b></font></td>
+							<td width="25"></td>
+							<td width="100"></td>
+							<td width="30"><input type="text" name="OMP" size="2" value="0" onchange="incStat(this.form, this.name, this.value)"></td>
+							<td width="30"><img height="7" width="11" src="GIFs/add.gif" onclick="form.OMP.value = eval(form.OMP.value)+1"><br>
+								<img height="7" width="11" src="GIFs/subtract.gif" onclick="form.OMP.value = eval(form.OMP.value)-1"></td>
+							<td width="73"><input type="text" name="OMPskill" size="2" value="0" onchange="incStat(this.form, this.name, this.value)"></td>
+						</tr>
+						<tr>
+							<td width="25"></td>
+							<td width="115"><a href="javascript:start_new('http://metaverse.net:7877/help?topic=endurance')"><b>Trump</b></a></td>
+							<td width="55"><font color="white"><b>(INT):</b></font></td>
+							<td width="25"><img height="7" width="11" src="GIFs/add.gif" onclick="form.TRUadd.value = eval(form.TRUadd.value)+1, form.chaosADD.value = eval(form.chaosADD.value)-1"><br>
+								<img height="7" width="11" src="GIFs/subtract.gif" onclick="form.TRUadd.value = eval(form.TRUadd.value)-1, form.chaosADD.value = eval(form.chaosADD.value)+1"></td>
+							<td width="100">Add + <input type="text" name="TRUadd" size="2" value="0"></td>
+							<td width="30"><input type="text" name="TRU" size="2" value="0" onchange="incStat(this.form, this.name, this.value)"></td>
+							<td width="30"><img height="7" width="11" src="GIFs/add.gif" onclick="form.TRU.value = eval(form.TRU.value)+1"><br>
+								<img height="7" width="11" src="GIFs/subtract.gif" onclick="form.TRU.value = eval(form.TRU.value)-1"></td>
+							<td width="73"><input type="text" name="TRUskill" size="2" value="0" onchange="incStat(this.form, this.name, this.value)"></td>
+						</tr>
+						<tr>
+							<td width="25"></td>
+							<td width="115"><a href="javascript:start_new('http://metaverse.net:7877/help?topic=reflexes')"><b>Shape Shifting</b></a></td>
+							<td width="55"><font color="white"><b>(END):</b></font></td>
+							<td width="25"><img height="7" width="11" src="GIFs/add.gif" onclick="form.SHPadd.value = eval(form.SHPadd.value)+1, form.chaosADD.value = eval(form.chaosADD.value)-1"><br>
+								<img height="7" width="11" src="GIFs/subtract.gif" onclick="form.SHPadd.value = eval(form.SHPadd.value)-1, form.chaosADD.value = eval(form.chaosADD.value)+1"></td>
+							<td width="100">Add + <input type="text" name="SHPadd" size="2" value="0"></td>
+							<td width="30"><input type="text" name="SHP" size="2" value="0" onchange="incStat(this.form, this.name, this.value)"></td>
+							<td width="30"><img height="7" width="11" src="GIFs/add.gif" onclick="form.SHP.value = eval(form.SHP.value)+1"><br>
+								<img height="7" width="11" src="GIFs/subtract.gif" onclick="form.SHP.value = eval(form.SHP.value)-1"></td>
+							<td width="73"><input type="text" name="SHPskill" size="2" value="0" onchange="incStat(this.form, this.name, this.value)"></td>
+						</tr>
+						<tr>
+							<td width="25"></td>
+							<td width="115"><a href="javascript:start_new('http://metaverse.net:7877/help?topic=intelligence')"><b>Conjuration</b></a><b> </b></td>
+							<td width="55"><font color="white"><b>(INT):</b></font></td>
+							<td width="25"><img height="7" width="11" src="GIFs/add.gif" onclick="form.SO1add.value = eval(form.SO1add.value)+1, form.chaosADD.value = eval(form.chaosADD.value)-1"><br>
+								<img height="7" width="11" src="GIFs/subtract.gif" onclick="form.SO1add.value = eval(form.SO1add.value)-1, form.chaosADD.value = eval(form.chaosADD.value)+1"></td>
+							<td width="100">Add + <input type="text" name="SO1add" size="2" value="0"></td>
+							<td width="30"><input type="text" name="SO1" size="2" value="0" onchange="incStat(this.form, this.name, this.value)"></td>
+							<td width="30"><img height="7" width="11" src="GIFs/add.gif" onclick="form.SO1.value = eval(form.SO1.value)+1"><br>
+								<img height="7" width="11" src="GIFs/subtract.gif" onclick="form.SO1.value = eval(form.SO1.value)-1"></td>
+							<td width="73"><input type="text" name="SO1skill" size="2" value="0" onchange="incStat(this.form, this.name, this.value)"></td>
+						</tr>
+						<tr>
+							<td width="25"></td>
+							<td width="115"><a href="javascript:start_new('http://metaverse.net:7877/help?topic=psyche')"><b>Channeling</b></a><b> </b></td>
+							<td width="55"><font color="white"><b>(PSY):</b></font></td>
+							<td width="25"><img height="7" width="11" src="GIFs/add.gif" onclick="form.SO2add.value = eval(form.SO2add.value)+1, form.chaosADD.value = eval(form.chaosADD.value)-1"><br>
+								<img height="7" width="11" src="GIFs/subtract.gif" onclick="form.SO2add.value = eval(form.SO2add.value)-1, form.chaosADD.value = eval(form.chaosADD.value)+1"></td>
+							<td width="100">Add + <input type="text" name="SO2add" size="2" value="0"></td>
+							<td width="30"><input type="text" name="SO2" size="2" value="0" onchange="incStat(this.form, this.name, this.value)"></td>
+							<td width="30"><img height="7" width="11" src="GIFs/add.gif" onclick="form.SO2.value = eval(form.SO2.value)+1"><br>
+								<img height="7" width="11" src="GIFs/subtract.gif" onclick="form.SO2.value = eval(form.SO2.value)-1"></td>
+							<td width="73"><input type="text" name="SO2skill" size="2" value="0" onchange="incStat(this.form, this.name, this.value)"></td>
+						</tr>
+						<tr>
+							<td width="25"></td>
+							<td width="115"><a href="javascript:start_new('http://metaverse.net:7877/help?topic=awareness')"><b>Glamor</b></a><b> </b></td>
+							<td width="55"><font color="white"><b>(PSY):</b></font></td>
+							<td width="25"><img height="7" width="11" src="GIFs/add.gif" onclick="form.SO3add.value = eval(form.SO3add.value)+1, form.chaosADD.value = eval(form.chaosADD.value)-1"><br>
+								<img height="7" width="11" src="GIFs/subtract.gif" onclick="form.SO3add.value = eval(form.SO3add.value)-1, form.chaosADD.value = eval(form.chaosADD.value)+1"></td>
+							<td width="100">Add + <input type="text" name="SO3add" size="2" value="0"></td>
+							<td width="30"><input type="text" name="SO3" size="2" value="0" onchange="incStat(this.form, this.name, this.value)"></td>
+							<td width="30"><img height="7" width="11" src="GIFs/add.gif" onclick="form.SO3.value = eval(form.SO3.value)+1"><br>
+								<img height="7" width="11" src="GIFs/subtract.gif" onclick="form.SO3.value = eval(form.SO3.value)-1"></td>
+							<td width="73"><input type="text" name="SO3skill" size="2" value="0" onchange="incStat(this.form, this.name, this.value)"></td>
+						</tr>
+						<tr>
+							<td width="25"></td>
+							<td width="115"><a href="javascript:start_new('http://metaverse.net:7877/help?topic=awareness')"><b>Necromancy</b></a><b> </b></td>
+							<td width="55"><font color="white"><b>(PSY):</b></font></td>
+							<td width="25"><img height="7" width="11" src="GIFs/add.gif" onclick="form.SO4add.value = eval(form.SO4add.value)+1, form.chaosADD.value = eval(form.chaosADD.value)-1"><br>
+								<img height="7" width="11" src="GIFs/subtract.gif" onclick="form.SO4add.value = eval(form.SO4add.value)-1, form.chaosADD.value = eval(form.chaosADD.value)+1"></td>
+							<td width="100">Add + <input type="text" name="SO4add" size="2" value="0"></td>
+							<td width="30"><input type="text" name="SO4" size="2" value="0" onchange="incStat(this.form, this.name, this.value)"></td>
+							<td width="30"><img height="7" width="11" src="GIFs/add.gif" onclick="form.SO4.value = eval(form.SO4.value)+1"><br>
+								<img height="7" width="11" src="GIFs/subtract.gif" onclick="form.SO4.value = eval(form.SO4.value)-1"></td>
+							<td width="73"><input type="text" name="SO4skill" size="2" value="0" onchange="incStat(this.form, this.name, this.value)"></td>
+						</tr>
+						<tr>
+							<td width="25"></td>
+							<td width="115"><a href="javascript:start_new('http://metaverse.net:7877/help?topic=charisma')"><b>Sorcery</b></a><b> </b></td>
+							<td width="55"><font color="white"><b>(PSY):</b></font></td>
+							<td width="25"><img height="7" width="11" src="GIFs/add.gif" onclick="form.SO5add.value = eval(form.SO5add.value)+1, form.chaosADD.value = eval(form.chaosADD.value)-1"><br>
+								<img height="7" width="11" src="GIFs/subtract.gif" onclick="form.SO5add.value = eval(form.SO5add.value)-1, form.chaosADD.value = eval(form.chaosADD.value)+1"></td>
+							<td width="100">Add + <input type="text" name="SO5add" size="2" value="0"></td>
+							<td width="30"><input type="text" name="SO5" size="2" value="0" onchange="incStat(this.form, this.name, this.value)"></td>
+							<td width="30"><img height="7" width="11" src="GIFs/add.gif" onclick="form.SO5.value = eval(form.SO5.value)+1"><br>
+								<img height="7" width="11" src="GIFs/subtract.gif" onclick="form.SO5.value = eval(form.SO5.value)-1"></td>
+							<td width="73"><input type="text" name="SO5skill" size="2" value="0" onchange="incStat(this.form, this.name, this.value)"></td>
+						</tr>
+						<tr>
+							<td width="25"></td>
+							<td width="115"><a href="javascript:start_new('http://metaverse.net:7877/help?topic=size')"><b>WitchCraft</b></a><b> </b></td>
+							<td width="55"><font color="white"><b>(PSY):</b></font></td>
+							<td width="25"><img height="7" width="11" src="GIFs/add.gif" onclick="form.SO6add.value = eval(form.SO6add.value)+1, form.chaosADD.value = eval(form.chaosADD.value)-1"><br>
+								<img height="7" width="11" src="GIFs/subtract.gif" onclick="form.SO6add.value = eval(form.SO6add.value)-1, form.chaosADD.value = eval(form.chaosADD.value)+1"></td>
+							<td width="100">Add + <input type="text" name="SO6add" size="2" value="0"></td>
+							<td width="30"><input type="text" name="SO6" size="2" value="0" onchange="incStat(this.form, this.name, this.value)"></td>
+							<td width="30"><img height="7" width="11" src="GIFs/add.gif" onclick="form.SO6.value = eval(form.SO6.value)+1"><br>
+								<img height="7" width="11" src="GIFs/subtract.gif" onclick="form.SO6.value = eval(form.SO6.value)-1"></td>
+							<td width="73"><input type="text" name="SO6skill" size="2" value="0" onchange="incStat(this.form, this.name, this.value)"></td>
+						</tr>
+						<tr>
+							<td width="25"></td>
+							<td width="115"><b><input type="text" value="Other Minor Power" name="OtherMinorPowers" size="12"></b></td>
+							<td width="55"><font color="white"><b>(PSY):</b></font></td>
+							<td width="25"><img height="7" width="11" src="GIFs/add.gif" onclick="form.MOPadd.value = eval(form.MOPadd.value)+1, form.chaosADD.value = eval(form.chaosADD.value)-1"><br>
+								<img height="7" width="11" src="GIFs/subtract.gif" onclick="form.MOPadd.value = eval(form.MOPadd.value)-1, form.chaosADD.value = eval(form.chaosADD.value)+1"></td>
+							<td width="100">Add + <input type="text" name="MOPadd" size="2" value="0"></td>
+							<td width="30"><input type="text" name="MOP" size="2" value="0" onchange="incStat(this.form, this.name, this.value)"></td>
+							<td width="30"><img height="7" width="11" src="GIFs/add.gif" onclick="form.MOP.value = eval(form.MOP.value)+1"><br>
+								<img height="7" width="11" src="GIFs/subtract.gif" onclick="form.MOP.value = eval(form.MOP.value)-1"></td>
+							<td width="73"><input type="text" name="MOPskill" size="2" value="0" onchange="incStat(this.form, this.name, this.value)"></td>
+						</tr>
+					</table>
+					<br>
+				</td>
+			</tr>
+		</table>
+		<br>
+		<table border="0" cellpadding="0" cellspacing="0">
+			<tr>
+				<td width="10" bgcolor="#888888"></td>
+				<td width="140" bgcolor="#888888" valign="top"><font color="black"><b>Skills:</b></font></td>
+				<td width="20" bgcolor="black"></td>
+				<td bgcolor="#555555" width="480" valign="top">
+					<table border="0" cellpadding="0" cellspacing="0">
+						<tr>
+							<td width="322">
+								<center>
+									<table border="0" cellpadding="0" cellspacing="0" align="left">
+										<tr>
+											<td width="25"></td>
+											<td width="180"><font color="white"><b>Step Six: Skills</b></font></td>
+											<td width="38">Level</td>
+											<td width="25"></td>
+											<td width="28">Rank</td>
+											<td colspan="5"></td>
+										</tr>
+										<tr>
+											<td width="25"></td>
+											<td width="180"><font size="4">Athletics: (END)</font></td>
+											<td width="38"><input type="text" name="ATH" size="2" value="0" onchange="incStat(this.form, this.name, this.value)"></td>
+											<td width="25">
+												<div align="left">
+													<img height="7" width="11" src="GIFs/add.gif" border="0" onclick="form.ATH.value = eval(form.ATH.value)+1"><br>
+													<img height="7" width="11" src="GIFs/subtract.gif" onclick="form.ATH.value = eval(form.ATH.value)-1"></div>
+											</td>
+											<td width="28"><input type="text" name="ATHskill" size="2" value="0"></td>
+											<td colspan="5" valign="top"></td>
+										</tr>
+										<tr>
+											<td width="25"></td>
+											<td width="180"><font size="4">Computer: (INT)</font></td>
+											<td width="38"><input type="text" name="CPU" size="2" value="0" onchange="incStat(this.form, this.name, this.value)"></td>
+											<td width="25"><img height="7" width="11" src="GIFs/add.gif" onclick="form.CPU.value = eval(form.CPU.value)+1"><br>
+												<img height="7" width="11" src="GIFs/subtract.gif" onclick="form.CPU.value = eval(form.CPU.value)-1"></td>
+											<td width="28"><input type="text" name="CPUskill" size="2" value="0"></td>
+											<td colspan="5" valign="top"></td>
+										</tr>
+										<tr>
+											<td width="25"></td>
+											<td width="180"><font size="4">Electronics: (INT)</font></td>
+											<td width="38"><input type="text" name="ELE" size="2" value="0" onchange="incStat(this.form, this.name, this.value)"></td>
+											<td width="25"><img height="7" width="11" src="GIFs/add.gif" onclick="form.ELE.value = eval(form.ELE.value)+1"><br>
+												<img height="7" width="11" src="GIFs/subtract.gif" onclick="form.ELE.value = eval(form.ELE.value)-1"></td>
+											<td width="28"><input type="text" name="ELEskill" size="2" value="0"></td>
+											<td colspan="5" valign="top"></td>
+										</tr>
+										<tr>
+											<td width="25"></td>
+											<td width="180"><font size="4">Guns: (REF)</font></td>
+											<td width="38"><input type="text" name="GUN" size="2" value="0" onchange="incStat(this.form, this.name, this.value)"></td>
+											<td width="25"><img height="7" width="11" src="GIFs/add.gif" onclick="form.GUN.value = eval(form.GUN.value)+1"><br>
+												<img height="7" width="11" src="GIFs/subtract.gif" onclick="form.GUN.value = eval(form.GUN.value)-1"></td>
+											<td width="28"><input type="text" name="GUNskill" size="2" value="0"></td>
+											<td colspan="5" valign="top"></td>
+										</tr>
+										<tr>
+											<td width="25"></td>
+											<td width="180"><font size="4">Unarmed: (REF/STR)</font></td>
+											<td width="38"><input type="text" name="UNA" size="2" value="0" onchange="incStat(this.form, this.name, this.value)"></td>
+											<td width="25"><img height="7" width="11" src="GIFs/add.gif" onclick="form.UNA.value = eval(form.UNA.value)+1"><br>
+												<img height="7" width="11" src="GIFs/subtract.gif" onclick="form.UNA.value = eval(form.UNA.value)-1"></td>
+											<td width="28"><input type="text" name="UNAskill" size="2" value="0"></td>
+											<td colspan="5" valign="top"></td>
+										</tr>
+										<tr>
+											<td width="25"></td>
+											<td width="180"><font size="4">Investigation:(AWR)</font></td>
+											<td width="38"><input type="text" name="INV" size="2" value="0" onchange="incStat(this.form, this.name, this.value)"></td>
+											<td width="25"><img height="7" width="11" src="GIFs/add.gif" onclick="form.INV.value = eval(form.INV.value)+1"><br>
+												<img height="7" width="11" src="GIFs/subtract.gif" onclick="form.INV.value = eval(form.INV.value)-1"></td>
+											<td width="28"><input type="text" name="INVskill" size="2" value="0"></td>
+											<td colspan="5" valign="top"></td>
+										</tr>
+										<tr>
+											<td width="25"></td>
+											<td width="180"><font size="4">Command: (CHR)</font></td>
+											<td width="38"><input type="text" name="COM" size="2" value="0" onchange="incStat(this.form, this.name, this.value)"></td>
+											<td width="25"><img height="7" width="11" src="GIFs/add.gif" onclick="form.COM.value = eval(form.COM.value)+1"><br>
+												<img height="7" width="11" src="GIFs/subtract.gif" onclick="form.COM.value = eval(form.COM.value)-1"></td>
+											<td width="28"><input type="text" name="COMskill" size="2" value="0"></td>
+											<td colspan="5" valign="top"></td>
+										</tr>
+										<tr>
+											<td width="25"></td>
+											<td width="180"><font size="4">Lore:(INT)</font></td>
+											<td width="38"><input type="text" name="LOR" size="2" value="0" onchange="incStat(this.form, this.name, this.value)"></td>
+											<td width="25"><img height="7" width="11" src="GIFs/add.gif" onclick="form.LOR.value = eval(form.LOR.value)+1"><br>
+												<img height="7" width="11" src="GIFs/subtract.gif" onclick="form.LOR.value = eval(form.LOR.value)-1"></td>
+											<td width="28"><input type="text" name="LORskill" size="2" value="0"></td>
+											<td colspan="5" valign="top"></td>
+										</tr>
+										<tr>
+											<td width="25"></td>
+											<td width="180"><font size="4">Mechanic:(INT)</font></td>
+											<td width="38"><input type="text" name="MEC" size="2" value="0" onchange="incStat(this.form, this.name, this.value)"></td>
+											<td width="25"><img height="7" width="11" src="GIFs/add.gif" onclick="form.MEC.value = eval(form.MEC.value)+1"><br>
+												<img height="7" width="11" src="GIFs/subtract.gif" onclick="form.MEC.value = eval(form.MEC.value)-1"></td>
+											<td width="28"><input type="text" name="MECskill" size="2" value="0"></td>
+											<td colspan="5" valign="top"></td>
+										</tr>
+										<tr>
+											<td width="25"></td>
+											<td width="180"><font size="4">Medicine:(INT)</font></td>
+											<td width="38"><input type="text" name="MED" size="2" value="0" onchange="incStat(this.form, this.name, this.value)"></td>
+											<td width="25"><img height="7" width="11" src="GIFs/add.gif" onclick="form.MED.value = eval(form.MED.value)+1"><br>
+												<img height="7" width="11" src="GIFs/subtract.gif" onclick="form.MED.value = eval(form.MED.value)-1"></td>
+											<td width="28"><input type="text" name="MEDskill" size="2" value="0"></td>
+											<td colspan="5" valign="top"></td>
+										</tr>
+										<tr>
+											<td width="25"></td>
+											<td width="180"><font size="4">Armed:(REF)</font></td>
+											<td width="38"><input type="text" name="ARM" size="2" value="0" onchange="incStat(this.form, this.name, this.value)"></td>
+											<td width="25"><img height="7" width="11" src="GIFs/add.gif" onclick="form.ARM.value = eval(form.ARM.value)+1"><br>
+												<img height="7" width="11" src="GIFs/subtract.gif" onclick="form.ARM.value = eval(form.ARM.value)-1"></td>
+											<td width="28"><input type="text" name="ARMskill" size="2" value="0"></td>
+											<td colspan="5" valign="top"></td>
+										</tr>
+										<tr>
+											<td width="25"></td>
+											<td width="180"><font size="4">Perception:(AWR)</font></td>
+											<td width="38"><input type="text" name="PER" size="2" value="0" onchange="incStat(this.form, this.name, this.value)"></td>
+											<td width="25"><img height="7" width="11" src="GIFs/add.gif" onclick="form.PER.value = eval(form.PER.value)+1"><br>
+												<img height="7" width="11" src="GIFs/subtract.gif" onclick="form.PER.value = eval(form.PER.value)-1"></td>
+											<td width="28"><input type="text" name="PERskill" size="2" value="0"></td>
+											<td colspan="5" valign="top"></td>
+										</tr>
+										<tr>
+											<td width="25"></td>
+											<td width="180"><font size="4">Vehicles:(REF)</font></td>
+											<td width="38"><input type="text" name="VEH" size="2" value="0" onchange="incStat(this.form, this.name, this.value)"></td>
+											<td width="25"><img height="7" width="11" src="GIFs/add.gif" onclick="form.VEH.value = eval(form.VEH.value)+1"><br>
+												<img height="7" width="11" src="GIFs/subtract.gif" onclick="form.VEH.value = eval(form.VEH.value)-1"></td>
+											<td width="28"><input type="text" name="VEHskill" size="2" value="0"></td>
+											<td colspan="5" valign="top"></td>
+										</tr>
+										<tr>
+											<td width="25"></td>
+											<td width="180"><font size="4">Professional:(INT)</font></td>
+											<td width="38"><input type="text" name="PRO" size="2" value="0" onchange="incStat(this.form, this.name, this.value)"></td>
+											<td width="25"><img height="7" width="11" src="GIFs/add.gif" onclick="form.PRO.value = eval(form.PRO.value)+1"><br>
+												<img height="7" width="11" src="GIFs/subtract.gif" onclick="form.PRO.value = eval(form.PRO.value)-1"></td>
+											<td width="28"><input type="text" name="PROskill" size="2" value="0"></td>
+											<td colspan="5" valign="top"></td>
+										</tr>
+										<tr>
+											<td width="25"></td>
+											<td width="180"><font size="4">Science:(INT)</font></td>
+											<td width="38"><input type="text" name="SCI" size="2" value="0" onchange="incStat(this.form, this.name, this.value)"></td>
+											<td width="25"><img height="7" width="11" src="GIFs/add.gif" onclick="form.SCI.value = eval(form.SCI.value)+1"><br>
+												<img height="7" width="11" src="GIFs/subtract.gif" onclick="form.SCI.value = eval(form.SCI.value)-1"></td>
+											<td width="28"><input type="text" name="SCIskill" size="2" value="0"></td>
+											<td colspan="5" valign="top"></td>
+										</tr>
+										<tr>
+											<td width="25"></td>
+											<td width="180"><font size="4">Stealth:(REF)</font></td>
+											<td width="38"><input type="text" name="STE" size="2" value="0" onchange="incStat(this.form, this.name, this.value)"></td>
+											<td width="25"><img height="7" width="11" src="GIFs/add.gif" onclick="form.STE.value = eval(form.STE.value)+1"><br>
+												<img height="7" width="11" src="GIFs/subtract.gif" onclick="form.STE.value = eval(form.STE.value)-1"></td>
+											<td width="28"><input type="text" name="STEskill" size="2" value="0"></td>
+											<td colspan="5" valign="top"></td>
+										</tr>
+										<tr>
+											<td width="25"></td>
+											<td width="180"><font size="4">Streetwise:(CHR)</font></td>
+											<td width="38"><input type="text" name="STW" size="2" value="0" onchange="incStat(this.form, this.name, this.value)"></td>
+											<td width="25"><img height="7" width="11" src="GIFs/add.gif" onclick="form.STW.value = eval(form.STW.value)+1"><br>
+												<img height="7" width="11" src="GIFs/subtract.gif" onclick="form.STW.value = eval(form.STW.value)-1"></td>
+											<td width="28"><input type="text" name="STWskill" size="2" value="0"></td>
+											<td colspan="5" valign="top"></td>
+										</tr>
+										<tr>
+											<td width="25"></td>
+											<td width="180"><font size="4">Subterfuge:(CHR)</font></td>
+											<td width="38"><input type="text" name="SUB" size="2" value="0" onchange="incStat(this.form, this.name, this.value)"></td>
+											<td width="25"><img height="7" width="11" src="GIFs/add.gif" onclick="form.SUB.value = eval(form.SUB.value)+1"><br>
+												<img height="7" width="11" src="GIFs/subtract.gif" onclick="form.SUB.value = eval(form.SUB.value)-1"></td>
+											<td width="28"><input type="text" name="SUBskill" size="2" value="0"></td>
+											<td colspan="5" valign="top"></td>
+										</tr>
+										<tr>
+											<td width="25"></td>
+											<td width="180"><font size="4">Survival:(INT)</font></td>
+											<td width="38"><input type="text" name="SUR" size="2" value="0" onchange="incStat(this.form, this.name, this.value)"></td>
+											<td width="25"><img height="7" width="11" src="GIFs/add.gif" onclick="form.SUR.value = eval(form.SUR.value)+1"><br>
+												<img height="7" width="11" src="GIFs/subtract.gif" onclick="form.SUR.value = eval(form.SUR.value)-1"></td>
+											<td width="28"><input type="text" name="SURskill" size="2" value="0"></td>
+											<td colspan="5" valign="top"></td>
+										</tr>
+										<tr>
+											<td width="25"></td>
+											<td width="180"><font size="4">Tactics:(INT)</font></td>
+											<td width="38"><input type="text" name="TAC" size="2" value="0" onchange="incStat(this.form, this.name, this.value)"></td>
+											<td width="25"><img height="7" width="11" src="GIFs/add.gif" onclick="form.TAC.value = eval(form.TAC.value)+1"><br>
+												<img height="7" width="11" src="GIFs/subtract.gif" onclick="form.TAC.value = eval(form.TAC.value)-1"></td>
+											<td width="28"><input type="text" name="TACskill" size="2" value="0"></td>
+											<td colspan="5" valign="top"></td>
+										</tr>
+									</table>
+								</center>
+							</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+		</table>
+		<br>
+		<table border="0" cellpadding="0" cellspacing="0">
+			<tr>
+				<td width="10" bgcolor="#888888"></td>
+				<td width="140" bgcolor="#888888" valign="top"><font color="black"><b>Creatures:<br>
+					</b></font></td>
+				<td width="20" bgcolor="black"></td>
+				<td bgcolor="#555555" width="479" valign="top">
+					<table border="0" cellpadding="0" cellspacing="0" width="471">
+						<tr>
+							<td>
+								<table border="0" cellpadding="0" cellspacing="0" width="454">
+									<tr>
+										<td colspan="2"><input type="text" value="Name:" name="CR1Name" size="24"></td>
+										<td width="214"></td>
+									</tr>
+									<tr>
+										<td colspan="3"><textarea name="CR1Desc" cols="53" rows="4">Description:	</textarea></td>
+									</tr>
+									<tr>
+										<td colspan="2"></td>
+										<td width="214"></td>
+									</tr>
+									<tr>
+										<td valign="top" width="52">
+											<div align="left">
+												<font color="white"><b>(STR):</b></font></div>
+										</td>
+										<td valign="top" width="188"><input type="text" name="CR1str" size="2" value="10"></td>
+										<td width="214" rowspan="5">
+											<table border="0" cellpadding="0" cellspacing="0" width="220">
+												<tr>
+													<td valign="top" width="58"><font color="white"><b>(INT):</b></font></td>
+													<td width="162"><input type="text" name="CR1int" size="2" value="10"></td>
+												</tr>
+												<tr>
+													<td valign="top" width="58"><font color="white"><b>(PSY):</b></font></td>
+													<td width="162"><input type="text" name="CR1psy" size="2" value="10"></td>
+												</tr>
+												<tr>
+													<td valign="top" width="58"><font color="white"><b>(AWR):</b></font></td>
+													<td width="162"><input type="text" name="CR1awr" size="2" value="10"></td>
+												</tr>
+												<tr>
+													<td valign="top" width="58"><font color="white"><b>(CHR):</b></font></td>
+													<td width="162"><input type="text" name="CR1chr" size="2" value="10"></td>
+												</tr>
+												<tr>
+													<td colspan="2" bgcolor="#555555"><br>
+													</td>
+												</tr>
+											</table>
+										</td>
+									</tr>
+									<tr>
+										<td valign="top" width="52"><font color="white"><b>(REF):</b></font></td>
+										<td valign="top" width="188"><input type="text" name="CR1ref" size="2" value="10"></td>
+									</tr>
+									<tr>
+										<td valign="top" width="52"><font color="white"><b>(END):</b></font></td>
+										<td width="188"><input type="text" name="CR1end" size="2" value="10"></td>
+									</tr>
+									<tr>
+										<td valign="top" width="52"><font color="white"><b>(SIZ):</b></font></td>
+										<td width="188"><input type="text" name="CR1siz" size="2" value="10"></td>
+									</tr>
+									<tr>
+										<td colspan="2" bgcolor="#555555"><br>
+										</td>
+									</tr>
+								</table>
+							</td>
+						</tr>
+					</table>
+					<table border="0" cellpadding="0" cellspacing="0" width="473">
+						<tr>
+							<td width="336"></td>
+							<td width="137"><b>Improvements</b></td>
+						</tr>
+						<tr>
+							<td width="336"><input type="text" value="Attack Type:" name="CR1AttackType" size="40"><select name="CR1Attacks" size="1">
+									<option value="0">No Weapons: Fists, Blunt Teeth, etc.
+									<option value="1">Small Weapons: Claws, Daggers, Bite, etc.
+									<option value="2">Medium Weapon: Short Swords, Talons, Horns, etc.
+									<option value="3">Large Weapon: Long Sword, Fangs, etc.
+									<option value="4">Extra Large Weapons: Battle Ax, Crossbow, etc.
+									<option value="5">Heavy Weapons: 2H Sword, Dragon Teeth, etc.
+									<option value="0" selected>Damage Catagory
+								</select></td>
+							<td width="137" valign="top"><select name="CR1AttacksIMP" size="1">
+									<option value="1">+ 1 DMG_
+									<option value="2">+ 2 DMG
+									<option value="3">+ 3 DMG
+									<option value="4">+ 4 DMG
+									<option value="5">+ 5 DMG
+									<option value="0" selected>None
+								</select></td>
+						</tr>
+						<tr>
+							<td width="336"><input type="text" value="Armor Type:" name="CR1ArmorType" size="40"><select name="CR1Armor" size="1">
+									<option value="0">None AR: 0
+									<option value="1">Light Armor: Leather, Fur, etc. (AR: 1)
+									<option value="2">Medium Armor: Studded Leather (AR: 2)
+									<option value="3">Hard Armor: Chain Mail, Hard Shell, etc. (AR: 3)
+									<option value="4">Heavy Armor: Plate, Armored Scales, etc. (AR: 4) __
+									<option value="5">Full Armor: Full Plate, etc. (AR: 5)
+									<option value="0" selected>Armor Catagory
+								</select></td>
+							<td width="137" valign="top"><select name="CR1ArmorIMP" size="1">
+									<option value="1">+ 1 Rank
+									<option value="2">+ 2 Ranks
+									<option value="3">+ 3 Ranks
+									<option value="4">+ 4 Ranks
+									<option value="5">+ 5 Ranks
+									<option value="0" selected>None
+								</select></td>
+						</tr>
+						<tr>
+							<td width="336"><input type="text" value="Special Abilities:" name="CR1SA1" size="40"></td>
+							<td width="137"><select name="CR1SA1imp" size="1">
+									<option value="1">Rank 1
+									<option value="2">Rank 2
+									<option value="3">Rank 3
+									<option value="4">Rank 4
+									<option value="5">Rank 5
+									<option value="0" selected>None
+								</select></td>
+						</tr>
+						<tr>
+							<td width="336"><input type="text" value="Special Abilities:" name="CR1SA2" size="40"></td>
+							<td width="137"><select name="CR1SA2imp" size="1">
+									<option value="1">Rank 1
+									<option value="2">Rank 2
+									<option value="3">Rank 3
+									<option value="4">Rank 4
+									<option value="5">Rank 5
+									<option value="0" selected>None
+								</select></td>
+						</tr>
+						<tr>
+							<td width="336"><input type="text" value="Special Abilities:" name="CR1SA3" size="40"></td>
+							<td width="137"><select name="CR1SA3imp" size="1">
+									<option value="1">Rank 1
+									<option value="2">Rank 2
+									<option value="3">Rank 3
+									<option value="4">Rank 4
+									<option value="5">Rank 5
+									<option value="0" selected>None
+								</select></td>
+						</tr>
+						<tr>
+							<td width="336"><input type="text" value="Special Abilities:" name="CR1SA4" size="40"></td>
+							<td width="137"><select name="CR1SA4imp" size="1">
+									<option value="1">Rank 1
+									<option value="2">Rank 2
+									<option value="3">Rank 3
+									<option value="4">Rank 4
+									<option value="5">Rank 5
+									<option value="0" selected>None
+								</select></td>
+						</tr>
+						<tr>
+							<td width="336"></td>
+							<td width="137"></td>
+						</tr>
+					</table>
+					<br>
+				</td>
+			</tr>
+			
+		</table>
+		<br>
+		<br>
+		<table border="0" cellpadding="0" cellspacing="0">
+			<tr>
+				<td width="10" bgcolor="#888888"></td>
+				<td bgcolor="#888888" width="140" valign="top"><font color="black"><b>Finish:</b></font></td>
+				<td width="20" bgcolor="#110000"></td>
+				<td width="25" bgcolor="#555555"></td>
+				<td bgcolor="#555555" width="456"><font color="white"><b>Step Seven: That's it. you're done.<br>
+					</b></font><input type="submit" value="Save Character"><br>
+					<br>
+				</td>
+			</tr>
+		</table>
+		<br>
+		
+		<br>
+	</body>
+
+</html>

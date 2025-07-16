@@ -1,0 +1,500 @@
+<html>
+<head>
+<title>GURPS - Zodiac Character Creation</title>
+</head>
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+// written by Jackie Hamilton (kira@sjgames.com)
+// this program is copyright 1999 by Steve Jackson Games Incorporated.
+// it may not be duplicated, distributed, or altered in any way without
+// permission from SJ Games.
+
+var points=0;
+var pointsleft=300;
+stats = new Array(0, -25, -10, 0, 10, 15, 20, 25, 30, 40, 50, 60, 70, 75, 80, 90, 100, 110, 120, 125);
+snames = new Array("knife", "shortsword", "broadsword", "axe", "shield", "buckler", "running", "merchant", "alchemy", "stealth", "gesture");
+sdefs = new Array("dx-4","dx-5","dx-5","dx-5","dx-4","dx-4","none", "none", "none", "dx-5", "iq-4");
+
+function checktotal(form) {
+   sumpoints(form);
+   if (points != 300) {
+      alert("Point total is not equal to 300. You can't save this character until the point total is 300.");
+      return false;
+   } else {
+      return true;
+   }
+}
+
+function sumpoints(form) {
+   var tmpts = 0;
+   tmpts = tmpts + stats[parseInt(form.ST.value)];
+   tmpts = tmpts + stats[parseInt(form.HT.value)];
+   tmpts = tmpts + stats[parseInt(form.DX.value)];
+   tmpts = tmpts + stats[parseInt(form.IQ.value)];
+   var idx = form.adv_hitpoints.selectedIndex;
+   if (idx >= 0) {
+      tmpts = tmpts + (form.adv_hitpoints.options[idx].text * 5);
+   }
+   re = /\$/g;
+   mynum = form.adv_money.value;
+   newnum=mynum.replace(re, "");
+   if (Number(newnum) >= 0) {
+      tmpts = tmpts + (Number(newnum) / 10);
+   }
+   idx = form.adv_will.selectedIndex;
+   if (idx >= 0) {
+      tmpts = tmpts + (form.adv_will.options[idx].text * 4);
+   }
+   idx = form.adv_toughness.selectedIndex;
+   switch (idx) {
+      case 1:
+        tmpts = tmpts + 10;
+        break;
+      case 2:
+        tmpts = tmpts + 25;
+        break;
+   }
+   if (form.adv_literacy.checked) {
+      tmpts = tmpts + 10;
+   }
+   if (form.adv_absdir.checked) {
+      tmpts = tmpts + 5;
+   }
+   if (form.adv_highpain.checked) {
+      tmpts = tmpts + 10;
+   }
+   if (form.disadv_cowardice.checked) {
+      tmpts = tmpts - 10;
+   }
+   if (form.disadv_paranoia.checked) {
+      tmpts = tmpts - 10;
+   }
+   if (form.disadv_badsight.checked) {
+      tmpts = tmpts - 10;
+   }
+   wwill_idx = form.disadv_will.selectedIndex;
+   if (wwill_idx >= 0) {
+      tmpts = tmpts - (form.disadv_will.options[wwill_idx].text * 8);
+   }
+   for (var i=0; i <= 10; i++) {
+       eval ("var idx = form." + snames[i] + ".selectedIndex");
+       eval ("var ival = form." + snames[i] + ".options[" + idx + "].value");
+       eval ("var itx = form." + snames[i] + ".options[" + idx + "].text");
+       if (ival != sdefs[i]) {
+          eval ("var ival = form." + snames[i] + ".options[" + idx + "].value");
+          ary = itx.split("(");
+          ary2 = ary[1].split(")");
+          ary3 = ary2[0].split(" ");
+          var ptval = ary3[0];
+          if (ptval != "default") {
+             tmpts = tmpts + Number(ptval);
+//             alert("tmpts=" + tmpts + ", ptval=" + ptval);
+          }
+       }
+   }
+   points = tmpts;
+   pointsleft = 300 - tmpts;
+   setpoints(form,points,pointsleft);
+}
+
+function incStat(form,stat,val) {
+   if (val < 6) {
+      alert("Minimum value for " + stat + " is 6.");
+      val = 6;
+      form.eval(stat).value = 6;
+   }
+   if (val > 20) {
+      alert("Maximum value for " + stat + " is 20.");
+      val = 20;
+      form.eval(stat).value = 20;
+   }
+   fix_stealth(form);
+}
+
+function dontchangeme(form){
+   alert("You can't change that field.");
+   setpoints(form,points,pointsleft);
+}
+
+function maxmoney(form) {
+   re = /\$/g;
+   mynum = form.adv_money.value;
+   newnum=mynum.replace(re, "");
+   if (Number(newnum) >= 250) {
+      alert("Error - max extra money is $250.");
+      form.adv_money.value = 250;
+   }
+   if (Number(newnum) % 10 != 0) {
+      alert("Error - extra money must be specified in multiples of $10.");
+      form.adv_money.value=0;
+   }
+}
+
+function setpoints(form,pts,ptsleft) {
+   form.pointsleft.value = ptsleft;
+   form.points.value = pts;
+   form.pointsleft2.value = ptsleft;
+   form.points2.value = pts;
+}
+
+function resetpoints(){
+   points = 0;
+   pointsleft = 300;
+}
+
+function start_new (u) {
+  var newwin;
+  newwin=window.open(u, "_blank", "toolbar=no,location=no,directories=no,status=no,menubar=no,resizable=yes,scrollbars=yes,width=550,height=250");
+}
+
+function fix_stealth (form) {
+   vallist = new Array("-5","-2","-1","","+1","+2","+3","+4","+5");
+   valnames = new Array("-5 (default)", "-2 (1/2 pt)", "-1 (1 pt)", "   (2 pts)", "+1 (4 pts)", " +2 (8 pts)", "+3 (16 pts)", "+4 (24 pts)", "+5 (32 pts)");
+   if (Number(form.IQ.value) > Number(form.DX.value)) {
+      var a="IQ";
+      var b="iq";
+   } else {
+      var a="DX";
+      var b="dx";
+   }
+   for (var i=0; i <= 8; i++) {
+      form.stealth.options[i].value = b + vallist[i];
+      form.stealth.options[i].text = a + valnames[i];
+   }
+}
+
+//-->
+</SCRIPT>
+<body background="/img/grid.gif" bgcolor="#000000" text="#cccccc" link="#99ccff" vlink="#408181"
+ >
+<h2><img src="/metaverse/img/txlogo2.gif" alt="Metaverse">
+Zodiac Character Creation</h2>
+
+Use this form to create a <b><i><a href="http://www.sjgames.com/gurps/">GURPS</a></i></b> character for <a href="/theme.html">Zodiac</a>. You have 100 points to spend on stats, advantages, and skills. Disadvantages have a negative
+point value; if you take disadvantages, you'll get extra points to spend on
+other things. At the end of the form you'll find the combat options.<p>
+
+Once you create and save a character, you'll be able to duplicate him for
+later games -- or edit him as you search for the Perfect Zodiac Rogue.<p>
+
+This form requires Javascript to work. If you don't have Javascript, you
+can use the <a href="chargen_n.html">static form</a>, but you'll have to calculate the point total yourself.<p>
+
+Characters MUST total 100 points. You will not be able to save the character until it does.<p>
+
+For help on a particular stat, skill, advantage or disadvantage, click on its name for a pop-up help window.<p>
+
+<FORM NAME="form" ACTION="chargen.cgi" METHOD="POST" onSubmit="return checktotal(this.form)">
+
+You must be a registered Metaverse player to create a new character. If you haven't already, <a href="/register.html">please register</a>.  If you have already registered, enter your username and password below:<p>
+<table border=0 cellpadding=0 cellspacing=0>
+<tr><td>Your Username:</td><td><input type="text" name="username" size=20></td></tr>
+<tr><td>Your Password:</td><td><input type="password" name="password" size=20> <font size="-1"><a href="/password.html">Forgot your password?</a></font></td></tr>
+</table>
+<p>
+<hr>
+<table border=0 cellpadding=0 cellspacing=0>
+<tr><td>Character Name: </td><td><input type="text" name="charname" size=30></td></tr>
+
+<tr><td>Gender: </td><td><select name="gender">
+<option>Male
+<option>Female
+</select></td></tr>
+<tr><td valign="TOP">Description:</td>
+<td valign="TOP"><textarea name="desc" wrap="VIRTUAL" rows=5 cols=50></textarea></td></tr>
+</table>
+<p>
+<table width=100% border=1 cellpadding=8>
+<tr>
+<td valign="top" width=20%>
+
+<table border=0>
+<tr><td>Current Point Value: </td><td><input type="text" name="points" size=5 value="0" onChange="dontchangeme(this.form)"></td></tr>
+<tr><td>Points Left To Spend:  </td><td><input type="text" name="pointsleft" size=5 value="300" onChange="dontchangeme(this.form)"></td></tr>
+</table>
+<p>
+<font size="-1">Press "Recalculate" after making changes to your character's stats (in the right column) to revise the current point values.<br></font>
+<input type="button" value="Recalculate" onClick="sumpoints(this.form)"><br>
+<p>
+
+<font size="-1">When your current point value is 100, click "Save" to save your character. If you made a mistake and want to start over, click "Start Over" - that will reset your points to 0.<br></font>
+<input type="submit" value="Save Character"><br>
+<input type="reset" value="Start Over" onClick="resetpoints()">
+<p>
+<center>
+<img src="/img/scorpio.gif" width=150 height=150 alt="">
+</center><p>
+</td>
+
+<td valign="TOP">
+
+<h3>Basic Stats</h3>
+
+<table border=0 cellpadding=0 cellspacing=0>
+<tr><td><a href="javascript:start_new('http://metaverse.net:7877/help?topic=strength')">Strength</a> (ST): </td><td><input type="text" name="ST" size=5 value="10"  onChange="incStat(this.form, this.name, this.value)">
+<font size="-1">(Note that some weapons have a minimum ST to use.)</font>
+</td></tr>
+<tr><td><a href="javascript:start_new('http://metaverse.net:7877/help?topic=dexterity')">Dexterity</a> (DX): </td><td><input type="text" name="DX" size=5 value="10" onChange="incStat(this.form, this.name, this.value)"></td></tr>
+<tr><td><a href="javascript:start_new('http://metaverse.net:7877/help?topic=intelligence')">Intelligence</a> (IQ): </td><td><input type="text" name="IQ" size=5 value="10" onChange="incStat(this.form, this.name, this.value)"></td></tr>
+<tr><td><a href="javascript:start_new('http://metaverse.net:7877/help?topic=health')">Health*</a> (HT): </td><td><input type="text" name="HT" size=5 value="10" onChange="incStat(this.form, this.name, this.value)"></td></tr>
+</table>
+
+<font size="-1">*Your starting Hit Points will equal your Health, plus any extra hit points you choose as an advantage.</font><p>
+
+<h3>Advantages</h3>
+
+<input type="text" size=5 name="adv_money" onChange="maxmoney(this.form)">
+<a href="javascript:start_new('http://metaverse.net:7877/help?topic=gold')">Extra Money</a> (Enter in multiples of $10; max $250; 1 pt per $10)<br>
+
+<select name="adv_hitpoints">
+<option value=0>
+<option>1
+<option>2
+<option>3
+<option>4
+<option>5
+</select> Extra Hit Points, 5 points per level (1 extra HP per level), max 5 levels.<br>
+<select name="adv_toughness">
+<option value=0>
+<option>1
+<option>2
+</select> <a href="javascript:start_new('http://metaverse.net:7877/help?topic=toughness')">Toughness</a>. DR 1: 10 points. DR 2: 25 points.<br>
+
+<select name="adv_will">
+<option value=0>
+<option>1
+<option>2
+<option>3
+<option>4
+<option>5
+</select> <a href="javascript:start_new('http://metaverse.net:7877/help?topic=will')">Strong Will</a>, 4 points per level, max 5 levels.<br>
+<input type="checkbox" name="adv_literacy" value=1> <a href="javascript:start_new('http://metaverse.net:7877/help?topic=literacy')">Literacy</a>, 10 points.<br>
+<input type="checkbox" name="adv_absdir" value=1> <a href="javascript:start_new('http://metaverse.net:7877/help?topic=compass')">Absolute Direction</a>, 5 points.<br>
+<input type="checkbox" name="adv_highpain" value=1> <a href="javascript:start_new('http://metaverse.net:7877/help?topic=highpain')">High Pain Threshold</a>, 10 points.
+<p>
+
+
+<h3>Disadvantages</h3>
+Disadvantages REDUCE the point value of your character. You don't have to take any if you don't want to, but they give you more points for other things.<p>
+
+<input type="checkbox" name="disadv_cowardice" value=1> <a href="javascript:start_new('http://metaverse.net:7877/help?topic=cowardice')">Cowardice</a>, -10<br>
+<input type="checkbox" name="disadv_paranoia" value=1> <a href="javascript:start_new('http://metaverse.net:7877/help?topic=paranoia')">Paranoia</a>, -10<br>
+<input type="checkbox" name="disadv_badsight" value=1> <a href="javascript:start_new('http://metaverse.net:7877/help?topic=bad_sight')">Bad Sight</a>, -10<br>
+<select name="disadv_will">
+<option value=0>
+<option>1
+<option>2
+<option>3
+<option>4
+<option>5
+</select> <a href="javascript:start_new('http://metaverse.net:7877/help?topic=will')">Weak Will</a>, -8 points per level, max 5 levels.<br>
+</td></tr>
+
+<tr><td valign="top" width=20%>
+
+<table border=0>
+<tr><td>Current Point Value: </td><td><input type="text" name="points2" size=5 value="0" onChange="dontchangeme(this.form)"></td></tr>
+<tr><td>Points Left To Spend:  </td><td><input type="text" name="pointsleft2" size=5 value="100" onChange="dontchangeme(this.form)"></td></tr>
+</table>
+<p>
+<font size="-1">Press "Recalculate" after making changes to your character's stats (in the right column) to revise the current point values.<br></font>
+<input type="button" value="Recalculate" onClick="sumpoints(this.form)"><br>
+<p>
+
+<font size="-1">When your current point value is 100, click "Save" to save your character. If you made a mistake and want to start over, click "Start Over" - that will reset your points to 0.<br></font>
+<input type="submit" value="Save Character"><br>
+<input type="reset" value="Start Over" onClick="resetpoints()">
+<p>
+
+</td>
+<td valign="TOP">
+<h3>Skills</h3>
+Defaults are shown in the text boxes. Cost for increasing skills varies depending on the type and difficulty of the skill.<p>
+
+<select name="knife">
+<option value="dx-4"> DX-4 (default)
+<option value="dx-1"> DX-1 (0.5 pt)
+<option value="dx"> DX   (1 pt)
+<option value="dx+1"> DX+1 (2 pts)
+<option value="dx+2"> DX+2 (4 pts)
+<option value="dx+3"> DX+3 (8 pts)
+<option value="dx+4"> DX+4 (16 pts)
+<option value="dx+5"> DX+5 (24 pts)
+</select> Knife (Physical/Easy) (DX-4) <br>
+<select name="shortsword">
+<option value="dx-5"> DX-5 (default)
+<option value="dx-2"> DX-2 (0.5 pt)
+<option value="dx-1"> DX-1 (1 pt)
+<option value="dx"> DX   (2 pts)
+<option value="dx+1"> DX+1 (4 pts)
+<option value="dx+2"> DX+2 (8 pts)
+<option value="dx+3"> DX+3 (16 pts)
+<option value="dx+4"> DX+4 (24 pts)
+<option value="dx+5"> DX+5 (32 pts)
+</select> Shortsword (Physical/Average) (DX-5 or Broadsword-2) <font size="-1">(Min ST: 7)</font>
+<br>
+<select name="broadsword">
+<option value="dx-5"> DX-5 (default)
+<option value="dx-2"> DX-2 (0.5 pt)
+<option value="dx-1"> DX-1 (1 pt)
+<option value="dx"> DX   (2 pts)
+<option value="dx+1"> DX+1 (4 pts)
+<option value="dx+2"> DX+2 (8 pts)
+<option value="dx+3"> DX+3 (16 pts)
+<option value="dx+4"> DX+4 (24 pts)
+<option value="dx+5"> DX+5 (32 pts)
+</select> Broadsword (Physical/Average) (DX-5 or Shortsword-2) <font size="-1">(Min ST: 10)</font><br>
+<select name="axe">
+<option value="dx-5"> DX-5 (default)
+<option value="dx-2"> DX-2 (0.5 pt)
+<option value="dx-1"> DX-1 (1 pt)
+<option value="dx"> DX   (2 pts)
+<option value="dx+1"> DX+1 (4 pts)
+<option value="dx+2"> DX+2 (8 pts)
+<option value="dx+3"> DX+3 (16 pts)
+<option value="dx+4"> DX+4 (24 pts)
+<option value="dx+5"> DX+5 (32 pts)
+</select> Axe/Mace (Physical/Average) (DX-5) <font size="-1">(Min ST: 12)</font><br>
+<select name="shield">
+<option value="dx-4"> DX-4 (default)
+<option value="dx-1"> DX-1 (0.5 pt)
+<option value="dx"> DX   (1 pt)
+<option value="dx+1"> DX+1 (2 pts)
+<option value="dx+2"> DX+2 (4 pts)
+<option value="dx+3"> DX+3 (8 pts)
+<option value="dx+4"> DX+4 (16 pts)
+<option value="dx+5"> DX+5 (24 pts)
+</select> Shield (Physical/Easy) (DX-4 or Buckler-2)<br>
+<select name="buckler">
+<option value="dx-4"> DX-4 (default)
+<option value="dx-1"> DX-1 (0.5 pt)
+<option value="dx"> DX   (1 pt)
+<option value="dx+1"> DX+1 (2 pts)
+<option value="dx+2"> DX+2 (4 pts)
+<option value="dx+3"> DX+3 (8 pts)
+<option value="dx+4"> DX+4 (16 pts)
+<option value="dx+5"> DX+5 (24 pts)
+</select> Buckler (Physical/Easy) (DX-4 or Shield-2)<br>
+<select name="running">
+<option value="none">
+<option value="dx-3"> DX-3 (0.5 pt)
+<option value="dx-2"> DX-2 (1 pt)
+<option value="dx-1"> DX-1 (2 pt)
+<option value="dx"> DX   (4 pts)
+<option value="dx+1"> DX+1 (8 pts)
+<option value="dx+2"> DX+2 (16 pts)
+<option value="dx+3"> DX+3 (24 pts)
+<option value="dx+4"> DX+4 (32 pts)
+<option value="dx+5"> DX+5 (40 pts)
+</select>  <a href="javascript:start_new('http://metaverse.net:7877/help?topic=running')">Running</a> (Physical/Hard) (no default)<br>
+
+<select name="merchant">
+<option value="none">
+<option value="iq-2"> IQ-2 (0.5 pt)
+<option value="iq-1"> IQ-1 (1 pt)
+<option value="iq"> IQ   (2 pts)
+<option value="iq+1"> IQ+1 (4 pts)
+<option value="iq+2"> IQ+2 (6 pts)
+<option value="iq+3"> IQ+3 (8 pts)
+<option value="iq+4"> IQ+4 (10 pts)
+<option value="iq+5"> IQ+5 (12 pts)
+</select>  <a href="javascript:start_new('http://metaverse.net:7877/help?topic=merchant')">Merchant</a> (Mental/Average) (no default)<br>
+
+<select name="alchemy">
+<option value="none">
+<option value="iq-4"> IQ-4 (0.5 pt)
+<option value="iq-3"> IQ-3 (1 pt)
+<option value="iq-2"> IQ-2 (2 pts)
+<option value="iq-1"> IQ-1 (4 pts)
+<option value="iq"> IQ   (8 pts)
+<option value="iq+1"> IQ+1 (12 pts)
+<option value="iq+2"> IQ+2 (16 pts)
+<option value="iq+3"> IQ+3 (20 pts)
+<option value="iq+4"> IQ+4 (24 pts)
+<option value="iq+5"> IQ+5 (28 pts)
+</select> <a href="javascript:start_new('http://metaverse.net:7877/help?topic=alchemy')">Alchemy</a> (Mental/Very Hard) (no default)<br>
+
+<select name="stealth">
+<option value="dx-5"> DX-5 (default)
+<option value="dx-2"> DX-2 (0.5 pt)
+<option value="dx-1"> DX-1 (1 pt)
+<option value="dx"> DX   (2 pts)
+<option value="dx+1"> DX+1 (4 pts)
+<option value="dx+2"> DX+2 (8 pts)
+<option value="dx+3"> DX+3 (16 pts)
+<option value="dx+4"> DX+4 (24 pts)
+<option value="dx+5"> DX+5 (32 pts)
+</select>  <a href="javascript:start_new('http://metaverse.net:7877/help?topic=stealth')">Stealth</a> (Physical/Average) (IQ-5 or DX-5)<br>
+
+
+<select name="gesture">
+<option value="iq-4"> IQ-4 (default)
+<option value="iq-1"> IQ-1 (0.5 pt)
+<option value="iq"> IQ   (1 pt)
+<option value="iq+1"> IQ+1 (2 pts)
+<option value="iq+2"> IQ+2 (4 pts)
+<option value="iq+3"> IQ+3 (6 pts)
+<option value="iq+4"> IQ+4 (8 pts)
+<option value="iq+5"> IQ+5 (10 pts)
+</select> <a href="javascript:start_new('http://metaverse.net:7877/help?topic=gesture')">Gesture</a> (Mental/Easy) (IQ-4)<br>
+</td></tr>
+<tr><td></td>
+<td valign="TOP">
+<h3>Combat Options</h3>
+
+
+<a href="javascript:start_new('http://metaverse.net:7877/help?topic=chase')">CHASE</a>: <input type="radio" name="chase" value="yes">yes
+<input type="radio" name="chase" value="no" checked>no<br>
+Automatically chase foes who flee from you during combat? Choosing YES is aggressive; if you catch a fleeing foe you can continue the fight. Choosing NO is playing it safe.
+<p>
+<a href="javascript:start_new('http://metaverse.net:7877/help?topic=strikeback')">STRIKEBACK</a>:
+<input type="radio" name="strikeback" value="yes">yes
+<input type="radio" name="strikeback" value="no" checked>no<br>
+Automatically attack anyone who attacks you, if combat is not already going on? If you intend to be aggressive, enter YES. Otherwise, enter NO. (If you enter NO, you may also want to set FLEE, below, to a number equal to your hits, so you flee as soon as you are attacked.)
+<p>
+
+<a href="javascript:start_new('http://metaverse.net:7877/help?topic=revenge')">REVENGE</a>:
+<input type="radio" name="revenge" value="yes">yes
+<input type="radio" name="revenge" value="no" checked>no<br>
+Automatically attack the last person who actually HIT you while combat is going on? Choosing YES may divide your attacks between multiple attackers; pick NO here if you're not sure what you want.
+<p>
+<a href="javascript:start_new('http://metaverse.net:7877/help?topic=flee')">FLEE</a>:
+<input type="radio" name="flee" value="yes">yes
+<input type="radio" name="flee" value="no" checked>no<br>
+Automatically flee during combat if your hits fall below a certain level?  Picking YES here will make you run away when you're hurt badly enough. If you pick NO, you're either planning to fight to the death, or you'll be typing FLEE manually when things go against you.
+<br>
+If you chose FLEE=yes, you must enter a number here: <input type="text" name="fleepts" size=5>  It must be less than the number of hit points you have. Note that if you enter 0 here, you'll flee automatically as soon as you are attacked!
+<p>
+
+<a href="javascript:start_new('http://metaverse.net:7877/help?topic=autostop')">AUTOSTOP</a>:
+<input type="radio" name="autostop" value="yes">yes
+<input type="radio" name="autostop" value="no" checked>no<br>
+Automatically stop fighting if the person fighting you stops? Choosing NO is aggressive. Choosing YES lets you stop to negotiate if your opponent stops.
+<p>
+
+
+</td></tr>
+</table>
+</FORM>
+
+<center>
+<font size=-1>
+<b><i><a href="http://www.sjgames.com/gurps/">GURPS</a></i></b> and
+<B><i>Metaverse</i></B> are registered trademarks, and Zodiac is a trademark,
+of <a href="http://www.sjgames.com/">Steve Jackson Games</a> Incorporated. All
+rights reserved.
+</font>
+</center>
+
+<p>
+<hr width=25%>
+<p>
+<center>
+<a href="http://www.sjgames.com/"><img src="/img/sjg-home-dk.gif"
+alt="Steve Jackson Games" border=0></a>
+<img src="/img/pyradot2-blu.gif" alt="*">
+<a href="/"><img src="/img/bot.gif" alt="Metaverse" border=0></a>
+</center>
+
+</BODY>
+</HTML>
